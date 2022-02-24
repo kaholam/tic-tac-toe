@@ -61,11 +61,11 @@ def win(current_game):
         print(f"Player {diags[0]} is the winner diagonally (\\)!")
         return True
     #Diagonal upwards
-    cols = reversed(range(len(game)))
-    rows = range(len(game))
+    rows = reversed(range(len(game)))
+    cols = range(len(game))
 
     diags = []
-    for col, row, in enumerate(cols):
+    for col, row in enumerate(rows):
         diags.append(game[row][col])
     if all_same(diags):
         print(f"Player {diags[0]} is the winner diagonally (/)!")
@@ -97,11 +97,10 @@ while play:
             game_won = True
             again = input("The game is over. Would you like to play again? (y/n) ")
             if again.lower() == "y":
-                print("restarting")
+                print("Restarting")
             elif again.lower() == "n":
                 print("Good bye")
                 play = False
             else:
                 print("Not a valid answer. See ya")
                 play = False
-
